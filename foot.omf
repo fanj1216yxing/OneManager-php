@@ -1,0 +1,20 @@
+<p id="hitokoto">:D 获取中...</p>
+<script>
+    fetch('https://v1.hitokoto.cn?c=a')
+        .then(response => response.json())
+        .then(data => {
+            const hitokoto = document.getElementById('hitokoto')
+            const from = document.getElementById('from')
+            hitokoto.innerText = data.hitokoto + "        —" + data.from
+        })
+        .catch(console.error)
+</script>
+<script src='//cdn.jsdelivr.net/npm/valine/dist/Valine.min.js'></script>
+<div id="vcomments"></div>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: '7hz5riGzvuzCu2nsMyzNN1H6-MdYXbMMI',
+        appKey: 'fpIdg8VERj95IWte38Jajlyi'
+    })
+</script>
